@@ -13,17 +13,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 0 1rem;
         }
         h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #006600;
+            text-align: center;
         }
         #flag {
             margin-bottom: 1.5rem;
             width: 120px;
+            max-width: 40vw;
             height: auto;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             border-radius: 8px;
@@ -31,16 +34,35 @@
         #countdown {
             font-size: 2rem;
             background: rgba(255,255,255,0.85);
-            padding: 1.5rem 2.5rem;
+            padding: 1.2rem 1.5rem;
             border-radius: 1rem;
             box-shadow: 0 4px 16px rgba(0,0,0,0.1);
             color: #d40000;
             border: 2px solid #006600;
+            text-align: center;
+            word-break: break-word;
         }
         .footer {
             margin-top: 2rem;
             font-size: 1rem;
             color: #555;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            #countdown {
+                font-size: 1.1rem;
+                padding: 1rem 0.5rem;
+            }
+            #flag {
+                width: 80px;
+                max-width: 60vw;
+            }
+            .footer {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
