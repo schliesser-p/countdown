@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portugal Surf Trip Countdown</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #006600;
+        }
+        #flag {
+            margin-bottom: 1.5rem;
+            width: 120px;
+            height: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        #countdown {
+            font-size: 2rem;
+            background: rgba(255,255,255,0.85);
+            padding: 1.5rem 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            color: #d40000;
+            border: 2px solid #006600;
+        }
+        .footer {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <img id="flag" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" alt="Portugal Flag">
+    <h1>Countdown to Portugal Surf Trip</h1>
+    <div id="countdown">Loading...</div>
+    <script>
+        // Set the date for the trip (year, month-1, day)
+        const tripDate = new Date(2025, 8, 29, 0, 0, 0); // September is month 8 (0-indexed)
+        function updateCountdown() {
+            const now = new Date();
+            const diff = tripDate - now;
+            if (diff <= 0) {
+                document.getElementById('countdown').textContent = "It's surf time!";
+                return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            document.getElementById('countdown').textContent =
+                `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
